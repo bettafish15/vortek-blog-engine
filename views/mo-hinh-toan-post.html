@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link
+        href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,300italic,400italic,600italic,700italic,900italic|Space+Mono:400,700'
+        rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css">
+    <link href='https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night.css' rel='stylesheet'
+        type='text/css'>
+    <title>Chày Cối Developer's Blog</title>
+</head>
+
+<body>
+    <header id="header">
+        <div id="logo-header">
+            <a href="index.html">
+                <img src="../assets/img/spinning.gif" alt="thetoxicdeveloper">
+            </a>
+        </div>
+        <h1>
+            <a href="index.html">
+                Chày Cối Developer
+            </a>
+        </h1>
+        <h4>
+            <a href="http://cv.devchaycoi.com">
+                By Hung Nguyen
+            </a>
+        </h4>
+
+        <h3>
+            A woodsman was once asked, “What would you do if you had just five minutes to chop down a tree?” He
+            answered, “I would spend the first two and a half minutes sharpening my axe.”
+        </h3>
+
+        <div id="header-top">
+            <a href="">RSS</a>
+            <a href="http://cv.devchaycoi.com">About me</a>
+            <a href="https://www.facebook.com/hung.nguyenhoang.77736">Facebook</a>
+            <a href="https://github.com/bettafish15">Github</a>
+            <a href="">Một số quote tâm đắc</a>
+            <a href="">Một số blog hay nên theo dõi</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Chày Cối Developer</h1>
+        </div>
+        <div class="nav-menu">
+            <button type="button">
+                <i class="fa fa-bars"></i>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="tags.html"><i class="fa fa-tags"></i> Tags</a>
+                </li>
+                <li><a href="#top"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+            </ul>
+        </div>
+
+        <article class="main-post">
+            <h1 id="m-h-nh-to-n-h-c-v-dota-2">Mô hình toán học và DotA 2</h1>
+<p>Có thể bạn đã được nghe rất nhiều về cái chữ <strong>&quot;mô hình&quot;</strong> này.</p>
+<p>Ở công ty của mình, có 1 team Data Scientist, và đám này suốt ngày ngồi nói về <strong>model</strong> này, <strong>model</strong> nọ.</p>
+<p>Hồi đầu tháng 6 vừa rồi, Apple cũng cho ra mắt bộ thư viện tên là <strong>CoreML</strong>, mà khi đọc vào bạn cũng sẽ thấy là nó cho phép chúng ta import một cái <strong>model</strong> gì gì đó vào bên trong ứng dụng di động để nó dự đoán kết quả cho một vấn đề nào đó. 
+Hay khi xem/đọc các thông tin trên báo đài, chúng ta thường thấy đề cập đến các khái niệm như <strong>&quot;mô hình dự đoán&quot;</strong> gì gì đó.</p>
+<p>Hoặc hằng năm cứ vào độ tháng 11, 12 thì tivi lại đưa tin bão lũ, và dự đoán đường đi của các cơn bão, làm thế nào mà các nhà khí tượng thủy văn có thể dự đoán được đường đi của bão?</p>
+<p><img src="img/hurricane-prediction.png" alt=""></p>
+<p>Vậy những thứ <strong>mô hình</strong> này là gì? Chúng được tạo ra như thế nào? Và được sử dụng ra làm sao?</p>
+<p><strong>Mô hình toán học</strong> (mathematical model) là cách để biểu diễn một vấn đề nào đó trong thực tế dưới dạng toán học (thường là dạng một phương trình, hệ phương trình hay rất nhiều hệ phương trình).</p>
+<p>Và người ta sử dụng những mô hình này để đưa ra dự đoán cho những gì sẽ xảy ra trong thực tế. Nếu dự đoán đúng, thì mô hình này chính xác, còn nếu dự đoán sai, thì mô hình này thiếu chính xác và cần phải được tính toán lại, hoặc bỏ đi hoàn toàn.</p>
+<div class="box-orange padding-15">
+<strong>Bình loạn:</strong> Đây cũng là điểm khác biệt mấu chốt giữa thầy bói và nhà khoa học. Khi một nhà khoa học đưa ra một dự đoán, anh ta dựa vào những bằng chứng khoa học cụ thể đã được chứng minh kĩ (mô hình toán), còn mấy tên thầy bói dựa vào cái gì để dự đoán thì chả ai biết luôn.
+</div>
+
+<p><img src="img/scientist-vs-fortune-teller.png" alt=""></p>
+<hr>
+<p>Để hiểu rõ hơn, chúng ta cùng xem qua một ví dụ sau: </p>
+<p><img src="img/dota-prize-prediction.png" alt=""></p>
+<p>Chúng ta muốn dự đoán prize pool của giải đấu <a href="http://www.dota2.com/international/battlepass"><strong>The International 2017</strong></a>, với dữ liệu là prize pool của các năm trước. Lưu ý: <strong>1M</strong> tương đương với <strong>1 triệu USD</strong>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:center">Year</th>
+<th style="text-align:center">Prize Pool</th>
+<th style="text-align:center">Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2011</td>
+<td style="text-align:center">1.6M</td>
+<td style="text-align:center">USD</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2012</td>
+<td style="text-align:center">1.6M</td>
+<td style="text-align:center">USD</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2013</td>
+<td style="text-align:center">2.8M</td>
+<td style="text-align:center">USD</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2014</td>
+<td style="text-align:center">10.9M</td>
+<td style="text-align:center">USD</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">2015</td>
+<td style="text-align:center">18M</td>
+<td style="text-align:center">USD</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">2016</td>
+<td style="text-align:center">20M</td>
+<td style="text-align:center">USD</td>
+</tr>
+</tbody>
+</table>
+<p>Giả sử, bằng các phương pháp phân tích và tính toán, chúng ta tìm được mô hình toán học của bài toán trên là dạng của một hàm <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid</a>:</p>
+<p>\begin{align}
+\displaystyle{f(x) = d + \frac{a - d}{1 + \Big(\displaystyle\frac{x}{c}\Big)^b}}
+\end{align}</p>
+<p>Với các tham số $a$, $b$, $c$, $d$ là các điều kiện ràng buộc (coefficients) có liên quan tới vấn đề mà ta cần dự đoán. Ở đây, các điều kiện đó có thể là: </p>
+<ul>
+<li><strong>Độ hấp dẫn của trò chơi Dota</strong>: Liệu  nó có còn hot nữa không? hay là daedgeam rồi?</li>
+<li><strong>Độ hấp dẫn của các content mà Valve tung ra</strong>: Ở thời điểm viết bài thì Valve vẫn chưa unlock Treasure level III, chưa có phần mới của Siltbreaker,...</li>
+<li><strong>Chu kì khuyến mãi kích cầu của Gaben</strong>: Vào dịp cuối tuần này thì ngài &quot;đại đế&quot; tung ra khuyến mãi giảm giá 70% cho battle level, kiểu vậy đó. </li>
+<li><strong>Tỉ lệ các đội nổi tiếng lọt qua vòng gửi xe (qualifier)</strong>: Ngoài danh sách 6 đội được mời trực tiếp vào vòng chung kết, hiện tại vẫn đang diễn ra vòng loại hết sức gay cấn, tất nhiên nếu những cái tên đình đám như Na`Vi hay Secret hay Alliance mà bị loại hết, hoặc toàn là các team &quot;đại lục&quot; vào thì giải đấu chắc chắn cũng sẽ bớt hot hơn.</li>
+</ul>
+<p>OK, giờ quay lại với cái công thức, giả sử sau một hồi phân tích, tính toán thì tìm được giá trị của các tham số trên lần lượt như sau:</p>
+<p>\begin{align}
+a &amp; = 1.550568<br>&amp;b &amp; = 8.84699<br>&amp;c &amp; = 4.015717<br>&amp;d &amp; = 20.46788
+\end{align}</p>
+<p>Suy ra mô hình của chúng ta sẽ là:</p>
+<p>\begin{align}
+\displaystyle{f(x) = 20.46788 + \frac{1.550568 - 20.46788}{1 + \Big(\displaystyle\frac{x}{4.015717}\Big)^{8.84699}}}
+\end{align}</p>
+<p>Với $x$ là số lần diễn ra sự kiện.</p>
+<p>Dựa vào mô hình trên chúng ta có thể tính được, với $x = 7$ (năm 2017), ta tính được giá trị $f(7) \approx 20.33$.</p>
+<p>Như vậy, mô hình của chúng ta đưa ra con số dự đoán mức tiền thưởng của giải <strong>The International 2017</strong> sẽ là <strong>20 triệu 330 nghìn USD</strong>.</p>
+<p><img src="img/dota-prize-prediction-2017.png" alt=""></p>
+<p>Tất nhiên, khi một trong các yếu tố đã nêu ở trên thay đổi, thì mô hình này sẽ không còn đúng nữa, và chúng ta sẽ phải thực hiện việc tính toán từ đầu để tìm ra mô hình chính xác hơn.</p>
+<p>Cũng tương tự đối với những năm tiếp theo, chúng ta chưa biết được Gaben sẽ còn những &quot;thủ đoạn&quot; gì mới, đến lúc đó chúng ta lại phải thay đổi mô hình một lần nữa.</p>
+<p>Còn nếu như Valve là một công ty bảo thủ và họ không đưa ra chiến dịch gì mới, và các yếu tố đưa ra vẫn giữ nguyên từ năm này sang năm nọ, thì vào những năm tiếp theo chúng ta cứ tiếp tục dùng mô hình ở trên để dễ dàng dự đoán ra prize pool của năm đó.</p>
+<hr>
+<p>Trong thực tế, một mô hình dự đoán phụ thuộc vào rất nhiều yếu tố (coefficients), việc tìm ra mô hình chính xác đòi hỏi chúng ta phải phân tích kĩ lưỡng vấn đề, thu thập thông tin chính xác và sau quá trình tính toán thì cần phải kiểm chứng lại thật kĩ càng (không phải ào ào như cái ví dụ trên đâu :D).</p>
+<p>Hy vọng qua ví dụ trên, các bạn đã hiểu được thế nào là mô hình toán học, và hiểu được tầm quan trọng của nó trong đời sống thực tế.</p>
+<p>--@TAGS: math, research</p>
+
+
+        </article>
+
+</div>
+
+    <div class="footer">
+        <span>Created with <a href="">Vortek-js</a></span>
+    </div>
+    <script src="../assets/js/jquery-1.10.2.min.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script type="text/x-mathjax-config">
+// This code is required for inline rendering. 
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ["$","$"] ],
+      processEscapes: true
+    }
+  });
+</script>
+    <!-- 
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script> -->
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
