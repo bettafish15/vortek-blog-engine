@@ -56,6 +56,7 @@ fs.readdir(__dirname + '/posts/', (err, files) => {
             let htmlOutput = __dirname + '/views/' + f.replace('.md', '-post.html'),
                 postContent = '',
                 htmlContent = '';
+            tagsUnderEachPost = '';
 
             let data = fs.readFileSync(__dirname + '/posts/' + f);
 
@@ -89,6 +90,14 @@ fs.readdir(__dirname + '/posts/', (err, files) => {
                     tagTemplate = fs.readFileSync('views/' + tempTag + '-tag.html')
                         .toString('utf-8').replace('<!--tag-content-->', tagHeadTemplate); //get html tag page to add link
                     fs.writeFileSync('views/' + tempTag + '-tag.html', tagTemplate); //add link to html tag page
+
+                    let tagsUnderEachPostTemplate = tagHeadHtml[2].replace('{%link%}', tempTag + '-tag.html')
+                        .replace('{%tag%}', tempTag);
+                    if (tagsUnderEachPost == '') {
+                        tagsUnderEachPost = tagsUnderEachPost + tagsUnderEachPostTemplate;
+                    } else {
+                        tagsUnderEachPost = tagsUnderEachPost + ', ' + tagsUnderEachPostTemplate;
+                    }
                 }
             });
 
@@ -104,6 +113,7 @@ fs.readdir(__dirname + '/posts/', (err, files) => {
             }
             postContent = marked(metaDataArr[1]);
             htmlContent = postHtml.replace('{%blog-content%}', postContent);
+            htmlContent = htmlContent.replace('{%tags-content%}', tagsUnderEachPost);
             fs.writeFile(htmlOutput, htmlContent, err => { //create post html page
                 if (err)
                     throw err;
