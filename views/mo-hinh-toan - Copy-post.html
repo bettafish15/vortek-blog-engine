@@ -65,3 +65,59 @@
                 <li><a href="#top"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
             </ul>
         </div>
+
+        <article class="main-post">
+            <h1 id="test-math">Test Math</h1>
+<h2 id="math">Math</h2>
+<p>So, $A = 5$ and $A^{2} = 9$ then $B_{1} = 8$
+$f(7) \approx 20.33$.
+A longer math:</p>
+<p>\begin{align}
+\displaystyle{f(x) = d + \frac{a - d}{1 + \Big(\displaystyle\frac{x}{c}\Big)^b}}
+\end{align}</p>
+<pre><code>import Foundation
+
+@objc class Person: Entity {
+  var name: String!
+  var age:  Int!
+
+  init(name: String, age: Int) {
+    /* /* ... */ */
+  }
+
+  // Return a descriptive string for this person
+  func description(offset: Int = 0) -&gt; String {
+    return &quot;\(name) is \(age + offset) years old&quot;
+  }
+}
+</code></pre>
+
+        </article>
+
+</div>
+
+    <div class="footer">
+        <span>Created with <a href="">Vortek-js</a></span>
+    </div>
+    <script src="../assets/js/jquery-1.10.2.min.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script type="text/x-mathjax-config">
+// This code is required for inline rendering. 
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ["$","$"] ],
+      processEscapes: true
+    }
+  });
+</script>
+    <!-- 
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script> -->
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

@@ -69,22 +69,26 @@ fs.readdir(__dirname + '/posts/', (err, files) => {
             let date = lineArr[1].replace(/\r/g, '').replace(/\n/g, '').replace('date: ', '');
             let tags = lineArr[2].replace(/\r/g, '').replace(/\n/g, '').replace('tags: ', '');
             let description = lineArr[3].replace(/\r/g, '').replace(/\n/g, '').replace('description: ', '');
+            let isVisible = lineArr[4].replace(/\r/g, '').replace(/\n/g, '').replace('visible: ', '') == '1' ? true : false;
+            //check if this md file gonna get added into index.html
 
             let tempTagArr = tags.split(",");
             tempTagArr.forEach(tempTag => {
                 tempTag = tempTag.trim();
-                if (!tagArr.includes(tempTag)) { //check if tag is already exists
+                if (!tagArr.includes(tempTag) && !tempTag.trim() == '') { //check if tag is already exists or null
                     tagArr.push(tempTag);
                     tagArr.sort();
                     let tagTemplate = tagTemplateHtml.replace('{%tag%}', tempTag);
                     fs.writeFileSync('views/' + tempTag + '-tag.html', tagTemplate); //create new html tag page 
                 }
-                let tagHeadTemplate = tagHeadHtml[1].replace('{%title%}', title);
-                tagHeadTemplate = tagHeadTemplate.replace('{%link%}', f.replace('.md', '-post.html')) + '\n'
-                    + '<!--tag-content-->';
-                tagTemplate = fs.readFileSync('views/' + tempTag + '-tag.html')
-                    .toString('utf-8').replace('<!--tag-content-->', tagHeadTemplate); //get html tag page to add link
-                fs.writeFileSync('views/' + tempTag + '-tag.html', tagTemplate); //add link to html tag page
+                if (tempTag.trim() != '') {
+                    let tagHeadTemplate = tagHeadHtml[1].replace('{%title%}', title);
+                    tagHeadTemplate = tagHeadTemplate.replace('{%link%}', f.replace('.md', '-post.html')) + '\n'
+                        + '<!--tag-content-->';
+                    tagTemplate = fs.readFileSync('views/' + tempTag + '-tag.html')
+                        .toString('utf-8').replace('<!--tag-content-->', tagHeadTemplate); //get html tag page to add link
+                    fs.writeFileSync('views/' + tempTag + '-tag.html', tagTemplate); //add link to html tag page
+                }
             });
 
             let headLineTemplate = headlinesHtml.replace('{%date%}', date);
@@ -94,7 +98,9 @@ fs.readdir(__dirname + '/posts/', (err, files) => {
             //headLineTemplate = headLineTemplate.replace(/{%link%}/g, ('\"posts/').concat(f.replace('.md', '.html') + '\"'));
             headLineTemplate = headLineTemplate.replace(/{%link%}/g, f.replace('.md', '-post.html'));
 
-            homePostsHtml = homePostsHtml + headLineTemplate + '\n';
+            if (isVisible == true) { //if not true then not add into index.html
+                homePostsHtml = homePostsHtml + headLineTemplate + '\n';
+            }
             postContent = marked(metaDataArr[1]);
             htmlContent = postHtml.replace('{%blog-content%}', postContent);
             fs.writeFile(htmlOutput, htmlContent, err => { //create post html page
@@ -119,8 +125,7 @@ fs.readdir(__dirname + '/posts/', (err, files) => {
             console.log('success');
     });
 
-
-    fs.writeFile('views/index.html', indexHtml.replace('{%data%}', homePostsHtml), (err) => {
+    fs.writeFile('views/index.html', indexHtml.replace('{%data%}', homePostsHtml), (err) => { //add post to index page
         if (err)
             throw err;
         else
