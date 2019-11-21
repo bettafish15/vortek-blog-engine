@@ -371,3 +371,7 @@ ul li {
   margin-left: -18px;
   display: inline;
 }
+
+.container > span > a {
+  color: #e74c3c;
+}
