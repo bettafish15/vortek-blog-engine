@@ -75,13 +75,14 @@ fs.readdir(__dirname + '/posts/', (err, files) => {
             let tempTagArr = tags.split(",");
             tempTagArr.forEach(tempTag => {
                 tempTag = tempTag.trim();
-                if (!tagArr.includes(tempTag) && !tempTag.trim() == '') { //check if tag is already exists or null
+                if (!tagArr.includes(tempTag) && tempTag.trim() != ''
+                    && isVisible == true) { //check if tag is already exists or null
                     tagArr.push(tempTag);
                     tagArr.sort();
                     let tagTemplate = tagTemplateHtml.replace('{%tag%}', tempTag);
                     fs.writeFileSync('views/' + tempTag + '-tag.html', tagTemplate); //create new html tag page 
                 }
-                if (tempTag.trim() != '') {
+                if (tempTag.trim() != '' && isVisible == true) {
                     let tagHeadTemplate = tagHeadHtml[1].replace('{%title%}', title);
                     tagHeadTemplate = tagHeadTemplate.replace('{%link%}', f.replace('.md', '-post.html')) + '\n'
                         + '<!--tag-content-->';
@@ -112,6 +113,7 @@ fs.readdir(__dirname + '/posts/', (err, files) => {
         }
     });
 
+    //ending of loop thourgh md files. now we gonna add tag and post into tag page and index page all together.
     tagArr.forEach(tag => {
         let tagHeadTemplate = tagHeadHtml[0].replace('{%tag%}', tag);
         tagHeadTemplate = tagHeadTemplate.replace('{%link%}', tag + '-tag.html');
