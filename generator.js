@@ -94,7 +94,7 @@ fs.readdir(__dirname + '/posts/', (err, files) => {
                     let tagsUnderEachPostTemplate = tagHeadHtml[2].replace('{%link%}', tempTag + '-tag.html')
                         .replace('{%tag%}', tempTag);
                     if (tagsUnderEachPost == '') {
-                        tagsUnderEachPost = tagsUnderEachPost + tagsUnderEachPostTemplate;
+                        tagsUnderEachPost = 'Tags: ' + tagsUnderEachPost + tagsUnderEachPostTemplate;
                     } else {
                         tagsUnderEachPost = tagsUnderEachPost + ', ' + tagsUnderEachPostTemplate;
                     }
