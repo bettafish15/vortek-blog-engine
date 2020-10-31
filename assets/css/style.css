@@ -225,6 +225,14 @@ h4 a {
   padding-top: 20px;
 }
 
+.after-post {
+  padding: 0 5% 0;
+  margin-bottom: 40px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  text-align: center;
+}
+
 .main-post p {
   line-height: 180%;
   text-align: justify;
@@ -374,4 +382,52 @@ ul li {
 
 .container > span > a {
   color: #e74c3c;
+}
+
+.comment-section {
+  border-top: 2px solid #e7e9ee;
+  margin-top: 20px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
+.comment-login * {
+  margin: 5px;
+}
+
+.comment-login > button {
+  background-color: cornflowerblue;
+  color: white;
+  border: 1px solid cornflowerblue;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.comment-box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.comment-box > img {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.comment-box > textarea {
+  border: 1px solid grey;
+  display: inline-block;
+  height: 60px;
+}
+
+.comment-box > button {
+  background-color: cornflowerblue;
+  height: 60px;
+  width: 60px;
+  color: white;
+  cursor: pointer;
 }
